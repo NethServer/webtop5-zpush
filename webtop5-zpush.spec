@@ -10,6 +10,7 @@ Source0: https://github.com/sonicle-webtop/z-push-webtop/archive/wt-%{wtrelease}
 BuildArch: noarch
 
 Requires: webtop5-core
+Requires: php-process, php-pgsql, php-imap, php-ldap, php-mcrypt, php-mbstring
 Conflicts: webtop4-zpush
 
 BuildRequires: php-cli
