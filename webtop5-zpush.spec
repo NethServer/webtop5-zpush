@@ -2,7 +2,7 @@
 
 Summary: WebTop z-push
 Name: webtop5-zpush
-Version: 1.1.4
+Version: 1.1.5
 Release: 1%{?dist}
 License: GPL
 URL: %{url_prefix}/%{name}
@@ -41,6 +41,10 @@ rm -rf %{buildroot}
 /usr/share/webtop/z-push/*
 
 %changelog
+* Thu Dec 13 2018 Matteo Valentini <matteo.valentini@nethesis.it> - 1.1.5-1
+-  WebTop 5.5.0 - NethServer/dev#5666
+  - rpm spec: Add explicit php requirements
+
 * Wed Aug 29 2018 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.1.4-1
 - webtop5-zpush: Incorrect creation of calendar events and contacts. - Bug NethServer/dev#5570
 
