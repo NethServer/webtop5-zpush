@@ -1,4 +1,4 @@
-%define wtrelease 5.3.0.1
+%define wtrelease 5.6.1
 
 Summary: WebTop z-push
 Name: webtop5-zpush
@@ -6,27 +6,29 @@ Version: 1.1.6
 Release: 1%{?dist}
 License: GPL
 URL: %{url_prefix}/%{name}
-Source0: https://github.com/sonicle-webtop/z-push-webtop/archive/wt-%{wtrelease}.tar.gz
+Source0: https://github.com/sonicle-webtop/webtop-eas-server/archive/wt-%{wtrelease}.tar.gz
+Source1: webtop5-zpush.conf
+Source2: config.json
+Source3: webtop-zpush
 BuildArch: noarch
 
 Requires: webtop5-core
-Requires: php-process, php-pgsql, php-imap, php-ldap, php-mcrypt, php-mbstring
+Requires: rh-php71-php-fpm, rh-php71-php-mbstring, rh-php71-php-imap
 Conflicts: webtop4-zpush
-
-BuildRequires: php-cli
 
 %description
 NethServer z-push for WebTop 5
 
-%prep
-#%setup
-
 %build
 mkdir -p root/var/log/z-push/state
 mkdir -p root/usr/share/webtop/z-push/
-tar xvzf %{SOURCE0} --exclude='.gitignore' -C root/usr/share/webtop/z-push --strip-components=2 z-push-webtop-wt-%{wtrelease}/src
-rm -rf  root/usr/share/webtop/z-push/backend/{caldav,carddav,kopano,ldap,maildir,searchldap,sqlstatemachine,vcarddir}
-php -r "include('root/usr/share/webtop/z-push/backend/webtop/config.php'); file_put_contents('root/usr/share/webtop/z-push/VERSION',ZPUSH_VERSION);"
+mkdir -p root/etc/httpd/conf.d/
+mkdir -p root/etc/logrotate.d/
+tar xvzf %{SOURCE0} --exclude='.gitignore' -C root/usr/share/webtop/z-push --strip-components=2 webtop-eas-server-wt-%{wtrelease}/src
+cp %{SOURCE1} root/etc/httpd/conf.d/
+cp %{SOURCE2} root/usr/share/webtop/z-push/
+cp %{SOURCE3} root/etc/logrotate.d/
+echo %{wtrelease} > VERSION
 
 %install
 rm -rf %{buildroot}
@@ -38,7 +40,13 @@ rm -rf %{buildroot}
 %attr(755, apache, apache) /var/log/z-push
 %attr(755, apache, apache) /var/log/z-push/state
 %attr(755, root, root) /usr/share/webtop/z-push/z-push-admin.php
+%config /etc/httpd/conf.d/webtop5-zpush.conf
+%config /usr/share/webtop/z-push/config.json
 /usr/share/webtop/z-push/*
+/usr/share/webtop/z-push/.htaccess
+/etc/logrotate.d/webtop-zpush
+%doc VERSION
+
 
 %changelog
 * Tue Jun 25 2019 Matteo Valentini <matteo.valentini@nethesis.it> - 1.1.6-1
