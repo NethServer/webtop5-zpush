@@ -1,4 +1,4 @@
-%define wtrelease 5.6.4
+%define wtrelease 5.7.0
 
 Summary: WebTop z-push
 Name: webtop5-zpush
