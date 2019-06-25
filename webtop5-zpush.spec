@@ -2,7 +2,7 @@
 
 Summary: WebTop z-push
 Name: webtop5-zpush
-Version: 1.1.5
+Version: 1.1.6
 Release: 1%{?dist}
 License: GPL
 URL: %{url_prefix}/%{name}
@@ -41,6 +41,10 @@ rm -rf %{buildroot}
 /usr/share/webtop/z-push/*
 
 %changelog
+* Tue Jun 25 2019 Matteo Valentini <matteo.valentini@nethesis.it> - 1.1.6-1
+- WebTop 5.7.1 - NethServer/dev#5770
+  - Update wtrelease to 5.3.0.1
+
 * Thu Dec 13 2018 Matteo Valentini <matteo.valentini@nethesis.it> - 1.1.5-1
 -  WebTop 5.5.0 - NethServer/dev#5666
   - rpm spec: Add explicit php requirements
