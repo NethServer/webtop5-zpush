@@ -2,7 +2,7 @@
 
 Summary: WebTop z-push
 Name: webtop5-zpush
-Version: 1.2.0
+Version: 1.2.1
 Release: 1%{?dist}
 License: GPL
 URL: %{url_prefix}/%{name}
@@ -49,6 +49,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Wed Mar 04 2020 Matteo Valentini <matteo.valentini@nethesis.it> - 1.2.1-1
+- WebTop 5.8.1 - NethServer/dev#6060
+
 * Tue Oct 01 2019 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.2.0-1
 - WebTop: new ActiveSync implementation - NethServer/dev#5732
 
