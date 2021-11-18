@@ -24,7 +24,8 @@ mkdir -p root/var/log/z-push/state
 mkdir -p root/usr/share/webtop/z-push/
 mkdir -p root/etc/httpd/conf.d/
 mkdir -p root/etc/logrotate.d/
-tar xvzf %{SOURCE0} --exclude='.gitignore' -C root/usr/share/webtop/z-push --strip-components=2 webtop-eas-server-wt-%{wtrelease}/src
+curl "https://code.sonicle.com/rest/api/latest/projects/WEBTOP/repos/webtop-eas-server/archive?at=refs%2Fheads%2Frelease&format=tar.gz" > source.tar.gz
+tar xvzf source.tar.gz --exclude='.gitignore' -C root/usr/share/webtop/z-push --strip-components=1 src/
 cp %{SOURCE1} root/etc/httpd/conf.d/
 cp %{SOURCE2} root/usr/share/webtop/z-push/
 cp %{SOURCE3} root/etc/logrotate.d/
@@ -44,6 +45,7 @@ rm -rf %{buildroot}
 %config /usr/share/webtop/z-push/config.json
 /usr/share/webtop/z-push/*
 /usr/share/webtop/z-push/.htaccess
+/usr/share/webtop/z-push/.user.ini
 /etc/logrotate.d/webtop-zpush
 %doc VERSION
 
