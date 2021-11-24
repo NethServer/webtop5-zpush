@@ -1,4 +1,4 @@
-%define wtrelease 5.8.1
+%define wtrelease 5.14.2
 
 Summary: WebTop z-push
 Name: webtop5-zpush
@@ -44,6 +44,7 @@ rm -rf %{buildroot}
 %config /usr/share/webtop/z-push/config.json
 /usr/share/webtop/z-push/*
 /usr/share/webtop/z-push/.htaccess
+/usr/share/webtop/z-push/.user.ini
 /etc/logrotate.d/webtop-zpush
 %doc VERSION
 
