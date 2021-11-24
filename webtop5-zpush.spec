@@ -44,6 +44,7 @@ rm -rf %{buildroot}
 %config /usr/share/webtop/z-push/config.json
 /usr/share/webtop/z-push/*
 /usr/share/webtop/z-push/.htaccess
+/usr/share/webtop/z-push/.user.ini
 /etc/logrotate.d/webtop-zpush
 %doc VERSION
 
