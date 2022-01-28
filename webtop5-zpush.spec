@@ -13,7 +13,7 @@ Source3: webtop-zpush
 BuildArch: noarch
 
 Requires: webtop5-core
-Requires: rh-php72-php-fpm, rh-php72-php-mbstring, rh-php72-php-imap, rh-php72-php-pdo
+Requires: rh-php73-php-fpm, rh-php73-php-mbstring, rh-php73-php-imap, rh-php73-php-pdo
 Conflicts: webtop4-zpush
 
 %description
