@@ -2,7 +2,7 @@
 
 Summary: WebTop z-push
 Name: webtop5-zpush
-Version: 1.3.0
+Version: 1.3.1
 Release: 1%{?dist}
 License: GPL
 URL: %{url_prefix}/%{name}
@@ -50,6 +50,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Fri Jul 01 2022 Matteo Valentini <matteo.valentini@nethesis.it> - 1.3.1-1
+- WebTop 5.17.3 - NethServer/dev#6674
+
 * Thu Feb 03 2022 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.3.0-1
 - WebTop: use PHP 7.3 for sabredav and z-push - NethServer/dev#6632
 
